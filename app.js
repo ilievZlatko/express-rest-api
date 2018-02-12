@@ -10,6 +10,8 @@ const orderRoutes = require('./api/routes/orders');
 
 mongoose.connect(`mongodb://admin:${process.env.MONGO_ATLAS_PW}@node-rest-shop-shard-00-00-3h3yd.mongodb.net:27017,node-rest-shop-shard-00-01-3h3yd.mongodb.net:27017,node-rest-shop-shard-00-02-3h3yd.mongodb.net:27017/test?ssl=true&replicaSet=node-rest-shop-shard-0&authSource=admin`);
 
+mongoose.Promise = global.Promise;
+
 // Use middlewares
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
